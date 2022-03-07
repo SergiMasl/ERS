@@ -7,10 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import javax.sql.rowset.Predicate;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 public class LogIn extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -30,7 +28,7 @@ public class LogIn extends HttpServlet {
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
 
- //       List<User> userList = session.createQuery("from Employee where username= \"" +username +"\"", User.class).list();
+ //       List<User> userList = session.createQuery("from User where username= \"" +username +"\"", User.class).list();
 //        Predicate[] predicates = new Predicate[2];
 //        predicates[0] = cb.equal()
 

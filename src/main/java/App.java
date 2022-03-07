@@ -36,7 +36,7 @@ public class App extends HttpServlet {
         if(toDo.equals("addreim")){
             User emp = new User();
 
-            emp.setId(1);
+            emp.setId(2);
             emp.setAmount(amount);
             emp.setDate(date);
             emp.setNote(note);
@@ -45,14 +45,7 @@ public class App extends HttpServlet {
             trans.commit();
         }
 
-        if(toDo.equals("Login")){
-          //  List <Employee> empList = (List<Employee>) session.createQuery("from Employee, Employee.class");
-//
-//            ViewList list = new ViewList();
-//            list.listEmpl(empList);
-//
-//
-         }
+
 
 
         session.close();

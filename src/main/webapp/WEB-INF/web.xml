@@ -36,4 +36,14 @@
     <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AllReimbursement</servlet-name>
+    <servlet-class>AllReimbursement</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AllReimbursement</servlet-name>
+    <url-pattern>/AllReimbursement</url-pattern>
+  </servlet-mapping>
+
 </web-app>

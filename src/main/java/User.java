@@ -1,6 +1,4 @@
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
 

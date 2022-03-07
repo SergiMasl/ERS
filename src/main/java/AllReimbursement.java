@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class AllReimbursement extends HttpServlet {
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
 
@@ -21,11 +20,18 @@ public class AllReimbursement extends HttpServlet {
         conf.configure("hibernate.cfg.xml");
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
-        List<User> userList = (List<User>) session.createQuery("from Employee", User.class).list();
-        session.close();
+        List<User> userList = (List<User>) session.createQuery("from User", User.class).list();
 
         for(User u: userList){
-            out.println("Name: " + userList);
+            out.println("<tr>");
+            out.println("<td>"+ u.getAmount() + "</td>");
+            out.println("<td>"+ u.getDate() + "</td>");
+            out.println("<td>"+ u.getNote() + "</td>");
+            out.println("</tr>");
         }
+
+
+
+        session.close();
     }
 }
