@@ -15,7 +15,7 @@
     <url-pattern>/com.rev.AddReimbursement</url-pattern>
   </servlet-mapping>
 
-  <!--Log in-->
+  <!--Log in / out-->
   <servlet>
   <servlet-name>com.rev.LogIn</servlet-name>
   <servlet-class>com.rev.LogIn</servlet-class>
@@ -25,6 +25,19 @@
   <servlet-name>com.rev.LogIn</servlet-name>
   <url-pattern>/com.rev.LogIn</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.LogOut</servlet-name>
+    <servlet-class>com.rev.LogOut</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.LogOut</servlet-name>
+    <url-pattern>/com.rev.LogOut</url-pattern>
+  </servlet-mapping>
+
+
+<!--  Main-->
 
   <servlet>
     <servlet-name>com.rev.Profile</servlet-name>
@@ -76,6 +89,48 @@
   <servlet-mapping>
     <servlet-name>com.rev.UpdateUserForm</servlet-name>
     <url-pattern>/com.rev.UpdateUserForm</url-pattern>
+  </servlet-mapping>
+
+<!--  Transactions-->
+
+  <servlet>
+    <servlet-name>com.rev.transactins.Approve</servlet-name>
+    <servlet-class>com.rev.transactins.Approve</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.transactins.Approve</servlet-name>
+    <url-pattern>/com.rev.transactins.Approve</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.transactins.AllTrans</servlet-name>
+    <servlet-class>com.rev.transactins.AllTrans</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.transactins.AllTrans</servlet-name>
+    <url-pattern>/com.rev.transactins.AllTrans</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.transactins.Disprove</servlet-name>
+    <servlet-class>com.rev.transactins.Disprove</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.transactins.Disprove</servlet-name>
+    <url-pattern>/com.rev.transactins.Disprove</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.transactins.Pending</servlet-name>
+    <servlet-class>com.rev.transactins.Pending</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.transactins.Pending</servlet-name>
+    <url-pattern>/com.rev.transactins.Pending</url-pattern>
   </servlet-mapping>
 
 

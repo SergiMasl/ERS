@@ -1,5 +1,6 @@
-package com.rev;
+package com.rev.transactins;
 
+import com.rev.UserTransactionsObj;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
@@ -13,11 +14,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class AllReimbursement extends HttpServlet {
-    String uname;
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+public class AllTrans extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
+        String uname = req.getParameter("uname");
 
         System.out.println("project started...");
         Configuration conf = new Configuration();
@@ -25,25 +27,20 @@ public class AllReimbursement extends HttpServlet {
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
 
-        Cookie[] cookies =  req.getCookies();
-        if(cookies!=null){
-            uname = cookies[0].getValue();
-        }
-
         List<UserTransactionsObj> tList = (List<UserTransactionsObj>) session.createQuery("from UserTransactionsObj u where u.userName='" + uname + "'", UserTransactionsObj.class).list();
 
 
-        for(UserTransactionsObj u: tList){
+        for (UserTransactionsObj u : tList) {
             out.println("<tr>");
-            out.println("<td>"+ u.getAmount() + "</td>");
-            out.println("<td>"+ u.getDate() + "</td>");
-            out.println("<td>"+ u.getNote() + "</td>");
-            out.println("<td>"+ u.getisAprove() + "</td>");
+            out.println("<td>" + u.getAmount() + "</td>");
+            out.println("<td>" + u.getDate() + "</td>");
+            out.println("<td>" + u.getNote() + "</td>");
+            out.println("<td>" + u.getisAprove() + "</td>");
             out.println("</tr>");
         }
+        session.clear();
+        session.close();
 
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.AllTrans'>All Transactions</a>");
         out.println("</br>");
         out.println("<a href='com.rev.transactins.Pending'>View Pending</a>");
         out.println("</br>");
@@ -55,6 +52,7 @@ public class AllReimbursement extends HttpServlet {
 
         out.println("<form action='com.rev.Profile' method='post'><input type='submit' value='Back'>");
 
-        session.close();
+
     }
+
 }

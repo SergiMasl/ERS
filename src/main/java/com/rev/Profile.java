@@ -16,8 +16,14 @@ public class Profile extends HttpServlet {
         String name= req.getParameter("username");
 
         out.println("Welcome "+ name);
+        out.println("</br>");
+        out.println("</br>");
+        out.println("<a href='com.rev.LogOut'>Logout</a>");
+        out.println("</br>");
         out.println(" <a href='addReimbure.html'>Add Reimbursement</a>");
-        out.println(" <a href='com.rev.AllReimbursement'>Look your Reimbursement</a>");
+        out.println("<form action='com.rev.AllReimbursement' method='post'>" +
+                "<input type='submit' value='Look your Reimbursement'/>" +
+                "</form>");
 
         out.println("<form action='com.rev.MyProfile' method='post'>");
         out.println("<input type='hidden' name='uname' value='" + name + "' />");

@@ -6,16 +6,11 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
-    private int id;
-    @Column(name="userName")
-    private String userName;
-
-    private String amount;
-    private String pin;
-    private String date;
-    private String note;
+    private int id_prof;
 
     //profile
+    @Column(name="userName")
+    private String userName;
     @Column(name="name")
     private String name;
     @Column(name="email")
@@ -29,60 +24,6 @@ public class User {
     private String password;
 
 
-    public User(){}
-
-    public User(String amount, String pin, String date, String note) {
-        this.amount = amount;
-        this.date = date;
-        this.pin = pin;
-        this.note = note;
-    }
-
-    public User(int id, String amount, String pin, String date, String note) {
-        this.id = id;
-        this.amount = amount;
-        this.date = date;
-        this.pin = pin;
-        this.note = note;
-    }
-
-    //Getters:
-    public int getId(){
-        return id;
-    }
-
-    public String getAmount(){
-        return amount;
-    }
-
-    public String getDate(){
-        return date;
-    }
-
-    public String getPin(){
-        return pin;
-    }
-
-    public String getNote(){
-        return note;
-    }
-
-
-    //Setters:
-    public void setId(int id){
-        this.id = id;
-    }
-    public void setAmount(String amount){
-        this.amount = amount;
-    }
-    public void setDate(String date){
-        this.date = date;
-    }
-    public void setNote(String note){
-        this.note = note;
-    }
-
-//    //profile:
     public String getname(){
         return name;
     }

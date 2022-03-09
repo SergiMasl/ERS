@@ -2,6 +2,7 @@ package com.rev;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,10 +27,12 @@ public class LogIn extends HttpServlet {
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
 
-        List<User> userList = session.createQuery("from User", User.class).list();
+        List<User> userList = session.createQuery("from User u where u.userName='"+ username + "'", User.class).list();
 
         for(User u : userList) {
             if (username.equals(u.getuserName()) && password.equals(u.getPassword())) {
+                Cookie cookie = new Cookie("username", username);
+                res.addCookie(cookie);
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("com.rev.Profile");
                 requestDispatcher.forward(req, res);
             }
@@ -39,6 +42,8 @@ public class LogIn extends HttpServlet {
 //                out.println("<span class='yesError'><span>");
             }
         }
+
+
         session.close();
 
     }

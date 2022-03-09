@@ -36,10 +36,10 @@ public class App extends HttpServlet {
         if(toDo.equals("addreim")){
             User emp = new User();
 
-           // emp.setId(2);
-            emp.setAmount(amount);
-            emp.setDate(date);
-            emp.setNote(note);
+//           // emp.setId(2);
+//            emp.
+//            emp.setDate(date);
+//            emp.setNote(note);
 
             session.save(emp);
             trans.commit();
