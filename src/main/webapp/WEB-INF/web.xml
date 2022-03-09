@@ -6,44 +6,77 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>AddReimbursement</servlet-name>
-    <servlet-class>AddReimbursement</servlet-class>
+    <servlet-name>com.rev.AddReimbursement</servlet-name>
+    <servlet-class>com.rev.AddReimbursement</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>AddReimbursement</servlet-name>
-    <url-pattern>/AddReimbursement</url-pattern>
+    <servlet-name>com.rev.AddReimbursement</servlet-name>
+    <url-pattern>/com.rev.AddReimbursement</url-pattern>
   </servlet-mapping>
 
   <!--Log in-->
   <servlet>
-  <servlet-name>LogIn</servlet-name>
-  <servlet-class>LogIn</servlet-class>
+  <servlet-name>com.rev.LogIn</servlet-name>
+  <servlet-class>com.rev.LogIn</servlet-class>
   </servlet>
 
   <servlet-mapping>
-  <servlet-name>LogIn</servlet-name>
-  <url-pattern>/LogIn</url-pattern>
+  <servlet-name>com.rev.LogIn</servlet-name>
+  <url-pattern>/com.rev.LogIn</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>Profile</servlet-name>
-    <servlet-class>Profile</servlet-class>
+    <servlet-name>com.rev.Profile</servlet-name>
+    <servlet-class>com.rev.Profile</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>Profile</servlet-name>
-    <url-pattern>/Profile</url-pattern>
+    <servlet-name>com.rev.Profile</servlet-name>
+    <url-pattern>/com.rev.Profile</url-pattern>
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>AllReimbursement</servlet-name>
-    <servlet-class>AllReimbursement</servlet-class>
+    <servlet-name>com.rev.AllReimbursement</servlet-name>
+    <servlet-class>com.rev.AllReimbursement</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>AllReimbursement</servlet-name>
-    <url-pattern>/AllReimbursement</url-pattern>
+    <servlet-name>com.rev.AllReimbursement</servlet-name>
+    <url-pattern>/com.rev.AllReimbursement</url-pattern>
   </servlet-mapping>
+
+<!--  profile-->
+  <servlet>
+    <servlet-name>com.rev.MyProfile</servlet-name>
+    <servlet-class>com.rev.MyProfile</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.MyProfile</servlet-name>
+    <url-pattern>/com.rev.MyProfile</url-pattern>
+  </servlet-mapping>
+
+<!--  Update User-->
+  <servlet>
+    <servlet-name>com.rev.UpdateUser</servlet-name>
+    <servlet-class>com.rev.UpdateUser</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.UpdateUser</servlet-name>
+    <url-pattern>/com.rev.UpdateUser</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.UpdateUserForm</servlet-name>
+    <servlet-class>com.rev.UpdateUserForm</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.UpdateUserForm</servlet-name>
+    <url-pattern>/com.rev.UpdateUserForm</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>

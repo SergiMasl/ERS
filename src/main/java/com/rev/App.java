@@ -1,8 +1,13 @@
+package com.rev;
+
 import jakarta.servlet.http.HttpServlet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import java.io.PrintWriter;
+import java.util.List;
 
 public class App extends HttpServlet {
     private int id;
@@ -20,12 +25,7 @@ public class App extends HttpServlet {
         this.note = note;
     }
 
-    public App(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-     void add(String toDo){
+    void add(String toDo){
          System.out.println("project started...");
          Configuration conf = new Configuration();
          conf.configure("hibernate.cfg.xml");
@@ -36,7 +36,7 @@ public class App extends HttpServlet {
         if(toDo.equals("addreim")){
             User emp = new User();
 
-            emp.setId(2);
+           // emp.setId(2);
             emp.setAmount(amount);
             emp.setDate(date);
             emp.setNote(note);
@@ -44,9 +44,6 @@ public class App extends HttpServlet {
             session.save(emp);
             trans.commit();
         }
-
-
-
 
         session.close();
 

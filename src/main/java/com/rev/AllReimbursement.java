@@ -1,3 +1,5 @@
+package com.rev;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ public class AllReimbursement extends HttpServlet {
         conf.configure("hibernate.cfg.xml");
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
-        List<User> userList = (List<User>) session.createQuery("from User", User.class).list();
+        List<User> userList = (List<User>) session.createQuery("from com.rev.User", User.class).list();
 
         for(User u: userList){
             out.println("<tr>");
