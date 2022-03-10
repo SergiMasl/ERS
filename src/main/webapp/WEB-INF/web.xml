@@ -214,6 +214,15 @@
     <url-pattern>/com.rev.admin.ViewCertainRei</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>com.rev.admin.CheckTransIndivid</servlet-name>
+    <servlet-class>com.rev.admin.CheckTransIndivid</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.CheckTransIndivid</servlet-name>
+    <url-pattern>/com.rev.admin.CheckTransIndivid</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>

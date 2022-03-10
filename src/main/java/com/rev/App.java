@@ -18,34 +18,33 @@ public class App extends HttpServlet {
     private String username;
     private String password;
 
-    public App(String amount, String pin, String date, String note) {
-        this.amount = amount;
-        this.date = date;
-        this.pin = pin;
-        this.note = note;
-    }
-
-    void add(String toDo){
-         System.out.println("project started...");
-         Configuration conf = new Configuration();
-         conf.configure("hibernate.cfg.xml");
-         SessionFactory factory = conf.buildSessionFactory();
-         Session session = factory.openSession();
-         Transaction trans = session.beginTransaction();
-
-        if(toDo.equals("addreim")){
-            User emp = new User();
-
-//           // emp.setId(2);
-//            emp.
-//            emp.setDate(date);
-//            emp.setNote(note);
-
-            session.save(emp);
-            trans.commit();
-        }
-
-        session.close();
-
-    }
+//    public App(String amount, String pin, String date, String note) {
+//        this.amount = amount;
+//        this.date = date;
+//        this.pin = pin;
+//        this.note = note;
+//    }
+//
+//    void add(String
+//         System.out.println("project started...");
+//         Configuration conf = new Configuration();
+//         conf.configure("hibernate.cfg.xml");
+//         SessionFactory factory = conf.buildSessionFactory();
+//         Session session = factory.openSession();
+//         Transaction trans = session.beginTransaction();
+//
+//
+//
+////           // emp.setId(2);
+////            emp.
+////            emp.setDate(date);
+////            emp.setNote(note);
+//
+//            session.save(emp);
+//            trans.commit();
+//        }
+//
+//        session.close();
+//
+//    }
 }
