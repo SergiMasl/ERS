@@ -22,6 +22,7 @@ public class User {
     @Column(name="accauntNubber")
     private String accauntNubber;
     private String password;
+    private String role;
 
 
     public String getname(){
@@ -45,6 +46,9 @@ public class User {
     public String getaccauntNubber(){
         return accauntNubber;
     }
+    public String getrole(){
+        return role;
+    }
 
     public void setname(String name){
         this.name = name;
@@ -64,6 +68,9 @@ public class User {
     }
     public void setaccauntNubber(String accauntNubber){
         this.accauntNubber = accauntNubber;
+    }
+    public void setrole(String role){
+        this.role = role;
     }
 
 

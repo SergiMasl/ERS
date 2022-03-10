@@ -1,5 +1,6 @@
 package com.rev;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -7,25 +8,35 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
 public class MyProfile extends HttpServlet {
-    String key;
-    String value;
-
+    String userName;
+    String role;
+    String backBtn;
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        String userName = req.getParameter("uname");
 
         System.out.println("project started...");
         Configuration conf = new Configuration();
         conf.configure("hibernate.cfg.xml");
         SessionFactory factory = conf.buildSessionFactory();
         Session session = factory.openSession();
+
+        Cookie[] cookies =  req.getCookies();
+        if(cookies!=null){
+            userName = cookies[0].getValue();
+            role = cookies[1].getValue();
+        }
+
+        if(role.equals("Administrator")){
+            backBtn = "com.rev.admin.AdminHome";
+        } else {
+            backBtn = "com.rev.Profile";
+        }
 
 
         List<User> profileList = session.createQuery("from User u where u.userName='" + userName + "'", User.class).list();
@@ -36,7 +47,7 @@ public class MyProfile extends HttpServlet {
             out.println("<div class='prof-wrap-main'>");
             out.println("<div class='prof-wrap'>");
             out.println("<div class='prof_left'>");
-            out.println("<div class='prof_back'><form action='com.rev.Profile' method='post'><input type='submit'value=''></form></div>");
+            out.println("<div class='prof_back'><form action='"+backBtn+"' method='post'><input type='submit'value=''></form></div>");
             out.println("<div class='prof_img-wrap'>");
             out.println("<img class='prof-img' src='img/profImg.jfif' alt='Img profile'>");
             out.println("</div>");

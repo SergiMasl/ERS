@@ -30,17 +30,30 @@ public class LogIn extends HttpServlet {
         List<User> userList = session.createQuery("from User u where u.userName='"+ username + "'", User.class).list();
 
         for(User u : userList) {
-            if (username.equals(u.getuserName()) && password.equals(u.getPassword())) {
-                Cookie cookie = new Cookie("username", username);
-                res.addCookie(cookie);
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("com.rev.Profile");
-                requestDispatcher.forward(req, res);
+            Cookie cookie = new Cookie("username", u.getuserName());
+            Cookie cookie2 = new Cookie("role", u.getrole());
+            res.addCookie(cookie);
+            res.addCookie(cookie2);
+
+            if(u.getrole().equals("Administrator")){
+                if(username.equals(u.getuserName()) && password.equals(u.getPassword())){
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("com.rev.admin.AdminHome");
+                    requestDispatcher.forward(req, res);
+                } else{
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
+                    requestDispatcher.forward(req, res);
+                }
+            } else {
+                if (username.equals(u.getuserName()) && password.equals(u.getPassword())) {
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("com.rev.Profile");
+                    requestDispatcher.forward(req, res);
+                }
+                else{
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
+                    requestDispatcher.forward(req, res);
+                }
             }
-            else{
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
-                requestDispatcher.forward(req, res);
-//                out.println("<span class='yesError'><span>");
-            }
+
         }
 
 

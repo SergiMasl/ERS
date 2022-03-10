@@ -17,10 +17,10 @@ public class LogOut extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-    //    request.getRequestDispatcher("navbar.html").include(request, response);
-
         Cookie cookie = new Cookie("username", "");
         response.addCookie(cookie);
+        Cookie cookie2 = new Cookie("role", "");
+        response.addCookie(cookie2);
 
         out.println("you are logged out successfully");
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.html");

@@ -2,12 +2,15 @@ package com.rev;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class UserTransactionsObj {
 
     @Id
+    @GeneratedValue
+    @Column (name = "id")
     private int id;
     @Column(name="userName")
     private String userName;
@@ -17,6 +20,9 @@ public class UserTransactionsObj {
     private String date;
     @Column(name="note")
     private String note;
+    @Column(name="adminNote")
+    private String adminNote;
+
 
     private String isAprove;
 
@@ -34,6 +40,9 @@ public class UserTransactionsObj {
     }
     public String getisAprove(){
         return isAprove;
+    }
+    public String getAdminNote(){
+        return adminNote;
     }
 
     public void setId(int id){
@@ -53,5 +62,8 @@ public class UserTransactionsObj {
     }
     public void setisAprove(String isAprove){
         this.isAprove = isAprove;
+    }
+    public void setAdminNote(String adminNote){
+        this.adminNote = adminNote;
     }
 }

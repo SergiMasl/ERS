@@ -2,6 +2,7 @@ package com.rev.transactins;
 
 import com.rev.UserTransactionsObj;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,11 +15,14 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class Disprove extends HttpServlet {
-
+    String uname;
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        String uname = req.getParameter("uname");
+        Cookie[] cookies =  req.getCookies();
+        if(cookies!=null){
+            uname = cookies[0].getValue();
+        }
 
         System.out.println("project started...");
         Configuration conf = new Configuration();
@@ -35,6 +39,7 @@ public class Disprove extends HttpServlet {
             out.println("<td>" + u.getDate() + "</td>");
             out.println("<td>" + u.getNote() + "</td>");
             out.println("<td>" + u.getisAprove() + "</td>");
+            out.println("<td>" + u.getAdminNote() + "</td>");
             out.println("</tr>");
         }
         session.clear();

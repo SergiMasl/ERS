@@ -43,8 +43,6 @@ public class AllReimbursement extends HttpServlet {
         }
 
         out.println("</br>");
-        out.println("<a href='com.rev.transactins.AllTrans'>All Transactions</a>");
-        out.println("</br>");
         out.println("<a href='com.rev.transactins.Pending'>View Pending</a>");
         out.println("</br>");
         out.println("<a href='com.rev.transactins.Approve'>View Approved</a>");

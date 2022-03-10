@@ -15,11 +15,14 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class AllTrans extends HttpServlet {
-
+    String uname;
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        String uname = req.getParameter("uname");
+        Cookie[] cookies =  req.getCookies();
+        if(cookies!=null){
+            uname = cookies[0].getValue();
+        }
 
         System.out.println("project started...");
         Configuration conf = new Configuration();

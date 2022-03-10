@@ -40,12 +40,13 @@ public class AddReimbursement extends HttpServlet {
 
         UserTransactionsObj emp = new UserTransactionsObj();
 
-        emp.setId(ThreadLocalRandom.current().nextInt());
+//        emp.setId(ThreadLocalRandom.current().nextInt());
         emp.setuserName(username);
         emp.setAmount(amount);
         emp.setDate(date);
         emp.setNote(note);
-        emp.setisAprove("Approve");
+        emp.setisAprove("Pending");
+        emp.setAdminNote("");
 
 
         session.save(emp);

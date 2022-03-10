@@ -133,5 +133,87 @@
     <url-pattern>/com.rev.transactins.Pending</url-pattern>
   </servlet-mapping>
 
+<!--Admin-->
+  <servlet>
+    <servlet-name>com.rev.admin.AdminHome</servlet-name>
+    <servlet-class>com.rev.admin.AdminHome</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.AdminHome</servlet-name>
+    <url-pattern>/com.rev.admin.AdminHome</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.printAllEmployees</servlet-name>
+    <servlet-class>com.rev.admin.printAllEmployees</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.printAllEmployees</servlet-name>
+    <url-pattern>/com.rev.admin.printAllEmployees</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.ViewDisapprove</servlet-name>
+    <servlet-class>com.rev.admin.ViewDisapprove</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.ViewDisapprove</servlet-name>
+    <url-pattern>/com.rev.admin.ViewDisapprove</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.ViewApprove</servlet-name>
+    <servlet-class>com.rev.admin.ViewApprove</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.ViewApprove</servlet-name>
+    <url-pattern>/com.rev.admin.ViewApprove</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.ViewAllPending</servlet-name>
+    <servlet-class>com.rev.admin.ViewAllPending</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.ViewAllPending</servlet-name>
+    <url-pattern>/com.rev.admin.ViewAllPending</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.VerifyRequest</servlet-name>
+    <servlet-class>com.rev.admin.VerifyRequest</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.VerifyRequest</servlet-name>
+    <url-pattern>/com.rev.admin.VerifyRequest</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.ViewCertainByName</servlet-name>
+    <servlet-class>com.rev.admin.ViewCertainByName</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.ViewCertainByName</servlet-name>
+    <url-pattern>/com.rev.admin.ViewCertainByName</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>com.rev.admin.ViewCertainRei</servlet-name>
+    <servlet-class>com.rev.admin.ViewCertainRei</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.admin.ViewCertainRei</servlet-name>
+    <url-pattern>/com.rev.admin.ViewCertainRei</url-pattern>
+  </servlet-mapping>
+
+
 
 </web-app>
