@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style></style>
+    <title>com.rev.Profile</title>
+</head>
+<body>
+
+
+    <main>
+        <button class="go_back">< Back</button>
+        <div class="contener">
+            <h2>Record Reimbursement</h2>
+            <form class="form_reimbursement" action="com.rev.AddReimbursement" method="post">
+                <h3>ACH Reimbursement</h3>
+                <p>Amount to be Reimburses</p>
+                <input type="text" name="amount" placeholder="Type amount" id="input_amout">
+                <p>Your pin</p>
+                <input type="text" name="pin" placeholder="Type your security pin" id="input_pin">
+                <p>Reimbursed on</p>
+                <input type="text" name="date" placeholder="Type date" id="input_date">
+                <p>Note</p>
+                <input type="text" name="note" placeholder="Type note of Reimbursement" id="input_note">
+                <lable>
+                    Submit
+                    <input type="submit">
+                </lable>
+                <a class="cancle_btm" href="com.rev.Profile">Cancle</a>
+            </form>
+        </div>    
+    </main>
+
+
+    <style src="index.js"></style>
+
+</body>
+</html>

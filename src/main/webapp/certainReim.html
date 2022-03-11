@@ -5,12 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<form action="ViewCertainRei" method="post">
 
-    <h1>Specific Employee Request</h1>
-<p>Specific Employee by ID : <input type="text" name="updateID" placeholder="Enter Number"></p>
-<input type="submit" value="Verify">
+    <form action="com.rev.admin.ViewCertainRei" method="post">
 
-</form>
+        <h1>Specific Employee Request</h1>
+        <p>Specific Employee by User Name : <input type="text" name="updateID" placeholder="Enter userName"></p>
+        <input type="submit" value="Verify">
+
+    </form>
+
+    <form action="com.rev.admin.ViewCertainByName" method="post">
+
+        <h1>Specific Employee Request by Name</h1>
+        <p>Specific Employee by User Name :
+            <input type="text" name="fName" placeholder="Enter first Name"></p>
+            <input type="text" name="lName" placeholder="Enter last Name"></p>
+        <input type="submit" value="Verify">
+
+    </form>
+
 </body>
 </html>

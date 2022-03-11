@@ -2,26 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLogIn.css">
+    <title>Log in</title>
+
 </head>
 <body>
 
-<form action="LoginServlet" method="post">
+    <div class="wrap_login">
+        <div class="contener">
+            <h3>Expense Reimbursement System</h3>
+            <div class="left">
+                <img class="log-img" src="css/img/back-log.png">
+            </div>
+            <div class="rigth">
+                <form class="form_login" action="com.rev.LogIn" method="post">
+                    <h1>Welcome Back</h1>
+                    <h3>Log in</h3>
 
-    <a href="login.html">Login</a> |
-    <a href="LogoutServlet">Logout</a> |
-    <a href="ProfileServlet">Profile</a>
-    <a href="ProfileServlet">Print All Employees</a>
-    <a href="update.html">Update Servlet Test</a>
-    <a href="ViewAllPending">View All Resolved</a>
-    <a href="ViewAllResolved">View All Resolved</a>
-    <a href="verify.html">Verify Test</a>
-    <a href="certainReim.html">Specific Employee</a>
+                    <label class="labelLog">
+                        <span class="span-lab">User name</span>
+                        <input class="inputLog" type="text" name="username" placeholder="Type user name">
+                    </label>
+
+                    <label class="labelLog">
+                        <span class="span-lab"> Password</span>
+                        <input class="inputLog" type="text" name="password" placeholder="Type user password">
+                    </label>
+
+                    <input class="btm-sub" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+<span class="isError"></span>
 
 
-
-
-</form>
-
+    <script src="logInJS.js"></script>
 </body>
 </html>
