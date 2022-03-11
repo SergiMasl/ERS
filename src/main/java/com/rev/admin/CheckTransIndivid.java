@@ -30,7 +30,7 @@ public class CheckTransIndivid extends HttpServlet {
         config.configure("hibernate2.cfg.xml");
         SessionFactory factory = config.buildSessionFactory();
         Session session = factory.openSession();
-        
+
 
         if(approve != null){
             employeeList = session.createQuery("from UserTransactionsObj u where u.isAprove='Approve' and u.userName='"+uname+"'", UserTransactionsObj.class).list();

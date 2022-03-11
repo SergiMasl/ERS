@@ -44,6 +44,9 @@ public class UserTransactionsObj {
     public String getAdminNote(){
         return adminNote;
     }
+    public String getUserName(){
+        return userName;
+    }
 
     public void setId(int id){
         this.id = id;

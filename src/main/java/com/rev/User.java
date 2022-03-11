@@ -19,8 +19,8 @@ public class User {
     private String adress;
     @Column(name="phone")
     private String phone;
-    @Column(name="accauntNubber")
-    private String accauntNubber;
+    @Column(name="amount")
+    private String amount;
     private String password;
     private String role;
 
@@ -43,8 +43,8 @@ public class User {
     public String getPassword(){
         return password;
     }
-    public String getaccauntNubber(){
-        return accauntNubber;
+    public String getAmount(){
+        return amount;
     }
     public String getrole(){
         return role;
@@ -66,8 +66,8 @@ public class User {
     public void setphone(String phone){
         this.phone = phone;
     }
-    public void setaccauntNubber(String accauntNubber){
-        this.accauntNubber = accauntNubber;
+    public void setAmount(String amount){
+        this.amount = amount;
     }
     public void setrole(String role){
         this.role = role;
