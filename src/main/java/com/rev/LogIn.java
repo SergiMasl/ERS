@@ -34,6 +34,9 @@ public class LogIn extends HttpServlet {
             Cookie cookie2 = new Cookie("role", u.getrole());
             res.addCookie(cookie);
             res.addCookie(cookie2);
+//            Cookie cookie3 = new Cookie("isPending", "");
+//            res.addCookie(cookie3);
+
 
             if(u.getrole().equals("Administrator")){
                 if(username.equals(u.getuserName()) && password.equals(u.getPassword())){

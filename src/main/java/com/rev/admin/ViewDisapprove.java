@@ -25,14 +25,35 @@ public class ViewDisapprove extends HttpServlet {
         Session session = factory.openSession();
 
         List<UserTransactionsObj> employeeList = session.createQuery("from UserTransactionsObj u where u.isAprove='Disapprove'", UserTransactionsObj.class).list();
-        for(UserTransactionsObj e : employeeList){
-            out.println();
-            out.println( e.getAmount());
-            out.println( e.getDate() );
-            out.println( e.getisAprove() );
-            out.println( e.getNote() );
-            out.println( e.getAdminNote() );
-            out.println("<br>");
+        request.getRequestDispatcher("navbar.html").include(request, response);
+        out.println("<link rel='stylesheet' href='css/reimbursemts.css'>");
+
+        out.println("<div class='contener2'>" +
+                "        <h2>All Reimbursements</h2>" +
+                "        <div class='input-wrap-money'>" +
+                "               <p class='input-money-text_user'>User Name: </p>" +
+                "                <div>|</div>" +
+                "               <p class='input-money-text_amount'>Amount of Reimburses: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_date'>Date:  </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_note'>Note: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_isAprove'>Status: </p>" +
+                "        </div>" +
+                "    </div>");
+        for(UserTransactionsObj u: employeeList){
+            out.println("<div class='contener3'><div class='input-wrap-money'>" +
+                    "           <p class='input-money-text_user'>"+u.getUserName()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_amount'>"+u.getAmount()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_date'>"+u.getDate()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_note'>"+u.getNote()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_isAprove'>"+u.getisAprove()+"</p>" +
+                    "        </div></div>");
         }
 
         session.close();

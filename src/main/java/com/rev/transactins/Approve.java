@@ -33,28 +33,34 @@ String uname;
         List<UserTransactionsObj> tList = (List<UserTransactionsObj>) session.createQuery("from UserTransactionsObj u where u.userName='" + uname + "' and u.isAprove='Approve'", UserTransactionsObj.class).list();
 
 
-        for (UserTransactionsObj u : tList) {
-            out.println("<tr>");
-            out.println("<td>" + u.getAmount() + "</td>");
-            out.println("<td>" + u.getDate() + "</td>");
-            out.println("<td>" + u.getNote() + "</td>");
-            out.println("<td>" + u.getisAprove() + "</td>");
-            out.println("</tr>");
+        req.getRequestDispatcher("navbarUser.html").include(req, res);
+        req.getRequestDispatcher("footer.html").include(req, res);
+        out.println("<link rel='stylesheet' href='css/reimbursemts.css'>");
+
+        out.println("<div class='contener2'>" +
+                "        <h2>All Reimbursements</h2>" +
+                "        <div class='input-wrap-money'>" +
+                "            <p class='input-money-text_amount'>Amount of Reimburses: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_date'>Date:  </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_note'>Note: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_isAprove'>Status: </p>" +
+                "        </div>" +
+                "    </div>");
+        for(UserTransactionsObj u: tList){
+            out.println("<div class='contener3'><div class='input-wrap-money'>" +
+                    "            <p class='input-money-text_amount'>"+u.getAmount()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_date'>"+u.getDate()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_note'>"+u.getNote()+"</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_isAprove'>"+u.getisAprove()+"</p>" +
+                    "        </div></div>");
         }
-        session.clear();
+        req.getRequestDispatcher(" ").include(req, res);
         session.close();
-
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.AllTrans'>View AllTrans</a>");
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.Pending'>View Pending</a>");
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.Approve'>View Approved</a>");
-        out.println("</br>");
-        out.println("</br>");
-
-        out.println("<form action='com.rev.Profile' method='post'><input type='submit' value='Back'>");
-
-
- }
+    }
 }

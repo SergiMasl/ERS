@@ -19,8 +19,8 @@ public class AllTrans extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-        Cookie[] cookies =  req.getCookies();
-        if(cookies!=null){
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
             uname = cookies[0].getValue();
         }
 
@@ -32,30 +32,34 @@ public class AllTrans extends HttpServlet {
 
         List<UserTransactionsObj> tList = (List<UserTransactionsObj>) session.createQuery("from UserTransactionsObj u where u.userName='" + uname + "'", UserTransactionsObj.class).list();
 
+        req.getRequestDispatcher("navbarUser.html").include(req, res);
+        req.getRequestDispatcher("footer.html").include(req, res);
+        out.println("<link rel='stylesheet' href='css/reimbursemts.css'>");
 
+        out.println("<div class='contener2'>" +
+                "        <h2>All Reimbursements</h2>" +
+                "        <div class='input-wrap-money'>" +
+                "            <p class='input-money-text_amount'>Amount of Reimburses: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_date'>Date:  </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_note'>Note: </p>" +
+                "                <div>|</div>" +
+                "                <p class='input-money-text_isAprove'>Status: </p>" +
+                "        </div>" +
+                "    </div>");
         for (UserTransactionsObj u : tList) {
-            out.println("<tr>");
-            out.println("<td>" + u.getAmount() + "</td>");
-            out.println("<td>" + u.getDate() + "</td>");
-            out.println("<td>" + u.getNote() + "</td>");
-            out.println("<td>" + u.getisAprove() + "</td>");
-            out.println("</tr>");
+            out.println("<div class='contener3'><div class='input-wrap-money'>" +
+                    "            <p class='input-money-text_amount'>" + u.getAmount() + "</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_date'>" + u.getDate() + "</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_note'>" + u.getNote() + "</p>" +
+                    "            <div>|</div>" +
+                    "            <p class='input-money-text_isAprove'>" + u.getisAprove() + "</p>" +
+                    "        </div></div>");
         }
-        session.clear();
+        req.getRequestDispatcher(" ").include(req, res);
         session.close();
-
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.Pending'>View Pending</a>");
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.Approve'>View Approved</a>");
-        out.println("</br>");
-        out.println("<a href='com.rev.transactins.Disprove'>View Disprove</a>");
-        out.println("</br>");
-        out.println("</br>");
-
-        out.println("<form action='com.rev.Profile' method='post'><input type='submit' value='Back'>");
-
-
     }
-
 }

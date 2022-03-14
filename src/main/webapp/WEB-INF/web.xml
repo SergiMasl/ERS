@@ -225,4 +225,14 @@
   </servlet-mapping>
 
 
+  <servlet>
+    <servlet-name>com.rev.AfterLogOut</servlet-name>
+    <servlet-class>com.rev.AfterLogOut</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>com.rev.AfterLogOut</servlet-name>
+    <url-pattern>/com.rev.AfterLogOut</url-pattern>
+  </servlet-mapping>
+  AfterLogOut
 </web-app>

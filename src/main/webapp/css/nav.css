@@ -1,0 +1,89 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.nav-home{
+    display: flex;
+    justify-content: space-between;
+    background-color: #B3E9E3;
+    border-radius: 0 0 22px 22px;
+    padding: 10px;
+}
+
+.nav-home > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img-home{
+    width: 100%;
+    border-radius: 100%;
+}
+
+.home-btn-img{
+width: 37px;
+margin-right: 10px;
+}
+
+.home-btn > form {
+    display: flex;
+    align-items: center;
+}
+
+.home-btn-submit{
+    padding: 5px;
+    border: none;
+    background-color: #B3E9E3;
+    font-size: 27px;
+}
+
+.home-btn-submit:hover{
+    color: red;
+    background-color: #c8cfce;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 20%);
+}
+
+.logo-wrap{
+    border-radius: 100%;
+    width: 80px;
+    margin-right: 20px;
+}
+
+.logoImg-home {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.log-out{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.log-out > img {
+    width: 40px;
+}
+
+.log-out-link {
+    font-family: sans-serif;
+    padding: 5px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 27px;
+
+}
+
+.log-out-link:hover{
+    color: red;
+    background-color: #c8cfce;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px rgb(0 0 0 / 20%);
+}

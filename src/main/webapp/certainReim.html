@@ -3,26 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/searchUser.css">
 </head>
 <body>
 
-    <form action="com.rev.admin.ViewCertainRei" method="post">
+<nav class='nav-home'>
+    <div>
+        <div class='logo-wrap'>
+            <img class='logoImg-home' src='css/img/logo-ers.png'>
+        </div>
+        <div class='home-btn'>
+            <form action='com.rev.admin.AdminHome' method='post'>
+                <img class='home-btn-img' src='css/svg/home-btn.svg'>
+                <input class='home-btn-submit' type='submit'value='Home'>
+            </form>
+        </div>
+    </div>
+    <label class='log-out'>
+        <img src='css/svg/log-out.svg'>
+        <a class='log-out-link' href='com.rev.LogOut'>Log out</a>
+    </label>
+</nav>
 
-        <h1>Specific Employee Request</h1>
-        <p>Specific Employee by User Name : <input type="text" name="updateID" placeholder="Enter userName"></p>
-        <input type="submit" value="Verify">
-
+<div class='search_contener search_space'>
+    <h4>Specific Employee Request</h4>
+    <form class='serch_form' action="com.rev.admin.ViewCertainRei" method="post">
+        <p>Specific Employee by User Name : <input class='serch_text' type="text" name="updateID" placeholder="Enter userName"></p>
+        <input class='verify' type="submit" value="Verify">
     </form>
 
-    <form action="com.rev.admin.ViewCertainByName" method="post">
+    <div class='decor'></div>
 
-        <h1>Specific Employee Request by Name</h1>
+    <h4>Specific Employee Request by Name</h4>
+    <form class='serch_form' action="com.rev.admin.ViewCertainByName" method="post">
         <p>Specific Employee by User Name :
-            <input type="text" name="fName" placeholder="Enter first Name"></p>
-            <input type="text" name="lName" placeholder="Enter last Name"></p>
-        <input type="submit" value="Verify">
-
+            <input class='serch_text' type="text" name="fName" placeholder="Enter first Name"></p>
+        <input class='serch_text' type="text" name="lName" placeholder="Enter last Name"></p>
+        <input class='verify' type="submit" value="Verify">
     </form>
+</div>
 
 </body>
 </html>

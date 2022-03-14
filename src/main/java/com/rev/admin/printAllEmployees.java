@@ -19,22 +19,51 @@ public class printAllEmployees extends HttpServlet {
         PrintWriter out = response.getWriter();
 
 
-//        request.getRequestDispatcher("navbar.html").include(request, response);
+        request.getRequestDispatcher("navbar.html").include(request, response);
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
         SessionFactory factory = config.buildSessionFactory();
         Session session = factory.openSession();
         List<User> employeeList = session.createQuery("from User", User.class).list();
 
-        out.println("<br>");
+        out.println("<link rel='stylesheet' href='css/usersView.css'>");
+        out.println("<div class='users_contener spaceUser'>" +
+                "               <h2>Users:</h2>" +
+                "               <div class='input-wrap-user'>" +
+                "                   <p class='input-money-text_name'>Employee Name: </p>" +
+                "                    <div>|</div>" +
+                "                    <p class='input-money-text_role'>Position:  </p>" +
+                "                   <div>|</div>" +
+                "                   <p class='input-money-text_email'>Email: </p>" +
+                "                    <div>|</div>" +
+                "                    <p class='input-money-text_phone'>Phone: </p>" +
+                "                    <div>|</div>" +
+                "                    <p class='input-money-text_balance'>Balance: </p>" +
+                "                    <div>|</div>" +
+                "                    <p class='input-money-text_adress'>Address: </p>" +
+                "                       <p class='input-money-text_username'>UserName: </p>" +
+                "        </div></div>");
         for(User e : employeeList){
-            out.println();
-            out.println( e.getname());
-            out.println( e.getrole() );
-            out.println( e.getemail() );
-            out.println( e.getphone() );
-            out.println( e.getadress() );
-            out.println("<br>");
+            if(e.getname() == null){
+                request.getRequestDispatcher("navbar.html").include(request, response);
+            } else {
+                out.println("<div class='users_contener'>" +
+                        "        <div class='input-wrap-user'>" +
+                        "            <p class='input-money-text_name'>"+e.getname()+" </p>" +
+                        "             <div>|</div>" +
+                        "             <p class='input-money-text_name'>"+e.getrole()+"  </p>" +
+                        "            <div>|</div>" +
+                        "            <p class='input-money-text_name'><a class='user_link' href='email:"+e.getemail()+"'>"+e.getemail()+"</a> </p>" +
+                        "             <div>|</div>" +
+                        "             <p class='input-money-text_name'><a class='user_link' href='tel:"+e.getphone()+"'>"+e.getphone()+"</a> </p>" +
+                        "             <div>|</div>" +
+                        "             <p class='input-money-text_name'>"+e.getAmount()+" </p>" +
+                        "             <div>|</div>" +
+                        "             <p class='input-money-text_adress'>"+e.getadress()+" </p>" +
+                        "             <p class='input-money-text_name'>"+e.getuserName()+" </p>" +
+                        "        </div>" +
+                        "    </div>");
+            }
         }
 
         session.close();

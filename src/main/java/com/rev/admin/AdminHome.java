@@ -12,30 +12,65 @@ public class AdminHome extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-
-        out.println(" <a href='com.rev.LogOut'>Log out</a>" +
-                "    <div>|</div>" +
-                "    <form action='com.rev.MyProfile' method='post'>" +
-                "       <input type='submit' value='View My profile' />" +
-
-                "    </form>" +
-
-                "    <a href='com.rev.MyProfile'>Profile</a>" +
-                "    <div>|</div>" +
-
-                "    <a href='com.rev.admin.printAllEmployees'>Print All Employees</a>" +
-                "    <div>|</div>" +
-
-//                "   out.println(<form action='com.rev.AllReimbursement' method='post'>" +
-//                        "                <input type='submit' value='Look your Reimbursement'/>" +
-//                        "                </form>"+
-//                "     <br>"+
-                "    <a href='com.rev.admin.ViewAllPending'>View Pending Reimbursement</a>" +
-                 "  <a href='com.rev.admin.ViewApprove'>View Approve Reimbursement</a>"+
-                "  <a href='com.rev.admin.ViewDisapprove'>View Disapprove Reimbursement</a>"+
-                "<br/>"+
-                "    <a href='verify.html'>Verify Test</a>"   +
-            "    <a href='certainReim.html'>Specific Employee</a>"
+        req.getRequestDispatcher("navbar.html").include(req, res);
+        out.println(
+                "<div class='body_contener'>" +
+                        "        <div class='contener-home_admin'>" +
+                        "            <div class='welcom_user'>" +
+                        "                <h1>Welcome to Expense Reimbursement System!</h1>" +
+                        "            </div>" +
+                        "            <div class='activiti_wrap'>" +
+                        "" +
+                        "                <div class='activiti-item'>" +
+                        "" +
+                        "                    <form action='com.rev.MyProfile' method='post' class='activiti_item-link'>" +
+                        "                        <button class='activiti-item_btnForm' type='submit'>" +
+                        "                            <img class='activiti-img' src='css/svg/profile.svg'>" +
+                        "                            <p class='activiti_text'>View my Profile</p>" +
+                        "                        </button>" +
+                        "                    </form>" +
+                        "" +
+                        "                </div>" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='com.rev.admin.printAllEmployees'>" +
+                        "                        <img class='activiti-img' src='css/svg/allEmpl.svg'>" +
+                        "                        <p class='activiti_text'>View profiles of ALL Employees</p>" +
+                        "                    </a>" +
+                        "                </div>" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='certainReim.html'>" +
+                        "                        <img class='activiti-img' src='css/svg/targetEmpl.svg'>" +
+                        "                        <p class='activiti_text'>View Specific Employee</p>" +
+                        "                    </a>" +
+                        "                </div>" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='com.rev.admin.ViewAllPending'>" +
+                        "                        <img class='activiti-img' src='css/svg/pending.svg'>" +
+                        "                        <p class='activiti_text'>View Pending Reimbursement</p>" +
+                        "                    </a>" +
+                        "                </div>\n" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='com.rev.admin.ViewApprove'>" +
+                        "                        <img class='activiti-img' src='css/svg/approve.svg'>" +
+                        "                        <p class='activiti_text'>View Approve Reimbursement</p>" +
+                        "                    </a>" +
+                        "                </div>" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='com.rev.admin.ViewDisapprove'>" +
+                        "                        <img class='activiti-img' src='css/svg/disapprove.svg'>" +
+                        "                        <p class='activiti_text'>View Disapprove Reimbursement</p>" +
+                        "                    </a>" +
+                        "                </div>" +
+                        "                <div class='activiti-item'>" +
+                        "                    <a href='verify.html'>" +
+                        "                        <img class='activiti-img' src='css/svg/verify.svg'>" +
+                        "                        <p class='activiti_text'>Verify Reimbursement</p>" +
+                        "                    </a>" +
+                        "                </div>" +
+                        "              " +
+                        "            </div>" +
+                        "        </div>" +
+                        "    </div>"
         );
     }
 }

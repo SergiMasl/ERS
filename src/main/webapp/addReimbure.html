@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/addMoney.css">
+    <link rel="stylesheet" href="css/nav.css">
     <style></style>
     <title>com.rev.Profile</title>
 </head>
 <body>
-
-
-    <main>
-        <button class="go_back">< Back</button>
-        <div class="contener">
-            <h2>Record Reimbursement</h2>
-            <form class="form_reimbursement" action="com.rev.AddReimbursement" method="post">
-                <h3>ACH Reimbursement</h3>
-                <p>Amount to be Reimburses</p>
-                <input type="text" name="amount" placeholder="Type amount" id="input_amout">
-                <p>Your pin</p>
-                <input type="text" name="pin" placeholder="Type your security pin" id="input_pin">
-                <p>Reimbursed on</p>
-                <input type="text" name="date" placeholder="Type date" id="input_date">
-                <p>Note</p>
-                <input type="text" name="note" placeholder="Type note of Reimbursement" id="input_note">
-                <lable>
-                    Submit
-                    <input type="submit">
-                </lable>
-                <a class="cancle_btm" href="com.rev.Profile">Cancle</a>
+<nav class='nav-home'>
+    <div>
+        <div class='logo-wrap'>
+            <img class='logoImg-home' src='css/img/logo-ers.png'>
+        </div>
+        <div class='home-btn'>
+            <form action='com.rev.Profile' method='post'>
+                <img class='home-btn-img' src='css/svg/home-btn.svg'>
+                <input class='home-btn-submit' type='submit'value='Home'>
             </form>
-        </div>    
-    </main>
+        </div>
+    </div>
+    <label class='log-out'>
+        <img src='css/svg/log-out.svg'>
+        <a class='log-out-link' href='com.rev.LogOut'>Log out</a>
+    </label>
+</nav>
+
+<main>
+
+    <div class="contener">
+        <div class='add_money_header_wrap'>
+            <h2>Record Reimbursement</h2>
+            <form action='com.rev.Profile' method='post' class='cancle_btm_form'><input type='submit' value='Cancel' class='cancle_btm'></form>
+        </div>
+        <form class="form_reimbursement" action="com.rev.AddReimbursement" method="post">
+            <div class='input-wrap-money'>
+                <p class='input-money-text'>Amount to be Reimburses</p>
+                <input class='input-money' type="text" name="amount" placeholder="Type amount" id="input_amout">
+            </div>
+            <div class='input-wrap-money'>
+                <p class='input-money-text'>Reimbursed on</p>
+                <input class='input-money' type="date" name="date" placeholder="Type date" id="input_date">
+            </div>
+            <div class='input-wrap-money'>
+                <p class='input-money-text input-money-text-note'>Note</p>
+                <textarea class='input-money' type="text" name="note" placeholder="Type note of Reimbursement" id="input_note" rows="5" cols="33"></textarea>
+            </div>
+
+            <lable>
+                <input type="submit" value='Submit' class='moneySub'>
+            </lable>
+        </form>
+    </div>
+</main>
 
 
     <style src="index.js"></style>

@@ -4,7 +4,6 @@ import com.rev.User;
 import com.rev.UserTransactionsObj;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,26 +20,13 @@ import java.util.List;
 
 public class VerifyRequest extends HttpServlet {
     String isAprove;
-    boolean approve = false;
+    String isPending;
     String user;
     String amountWanted;
     String oldAmount;
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
-        String Verify = request.getParameter("Verify");
-
-        switch (Verify) {
-            case "0":
-                isAprove = "Disapprove";
-
-                break;
-            case "1":
-                isAprove = "Approve";
-                approve = true;
-                break;
-        }
 
         String updateId = request.getParameter("updateId");
         String adminNote = request.getParameter("adminNote");
@@ -51,27 +37,22 @@ public class VerifyRequest extends HttpServlet {
         SessionFactory factory = config.buildSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
-        List<UserTransactionsObj> objTrans = session.createQuery("from UserTransactionsObj", UserTransactionsObj.class).list();
+        List<UserTransactionsObj> objTrans = session.createQuery("from UserTransactionsObj u where u.id='"+ updateId+ "'", UserTransactionsObj.class).list();
+
         for (UserTransactionsObj u : objTrans) {
             user = u.getUserName();
             amountWanted = u.getAmount();
-
+            isPending = u.getisAprove();
         }
 
-        String qryString = "update UserTransactionsObj u set u.isAprove='" + isAprove + "', u.adminNote='" + adminNote + "' where u.id='" + updateId + "'";
-        Query query = session.createQuery(qryString);
-        int count = query.executeUpdate();
-        transaction.commit();
-        session.clear();
 
+        if(isPending.equals("Pending")){
+            String qryString = "update UserTransactionsObj u set u.isAprove='" + isAprove + "', u.adminNote='" + adminNote + "' where u.id='" + updateId + "'";
+            Query query = session.createQuery(qryString);
+            int count = query.executeUpdate();
+            transaction.commit();
 
-        session.close();
-
-
-        //Change Amount if Approved
-
-        if(approve){
-            out.println("<p>66</p>");
+            //Change amount
             Configuration config2 = new Configuration();
             config2.configure("hibernate.cfg.xml");
             SessionFactory factory2 = config2.buildSessionFactory();
@@ -86,20 +67,25 @@ public class VerifyRequest extends HttpServlet {
 
             String x = String.valueOf(newAmount);
 
+            //Change Amount if Approved
             String qryString2 = "update User u set u.amount='" + x + "' where u.userName='"+user+"'";
-            out.println("<p>fdsfsd</p>");
             Query query2 = session2.createQuery(qryString2);
             int count2 = query2.executeUpdate();
-            out.println("<p>fdsfs 333 432d</p>");
 
             transaction2.commit();
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("com.rev.admin.AdminHome");
+            requestDispatcher.forward(request, response);
+
             session2.clear();
-            out.println("<p>fd5323sfsd</p>");
-
+            session.close();
+            session.clear();
+            session.close();
+        } else {
+            request.getRequestDispatcher("wrongIsNotPending.html").include(request, response);
+            request.getRequestDispatcher("com.rev.admin.AdminHome").include(request, response);
+            session.clear();
+            session.close();
         }
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("com.rev.admin.AdminHome");
-        requestDispatcher.forward(request, response);
 
     }
 }

@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/searchUser.css">
 </head>
 <body>
 
-<form action="com.rev.admin.VerifyRequest" method="post">
-    <h1>Approve Or Deny Account</h1>
+    <nav class='nav-home'>
+        <div>
+            <div class='logo-wrap'>
+                <img class='logoImg-home' src='css/img/logo-ers.png'>
+            </div>
+            <div class='home-btn'>
+                <form action='com.rev.admin.AdminHome' method='post'>
+                    <img class='home-btn-img' src='css/svg/home-btn.svg'>
+                    <input class='home-btn-submit' type='submit'value='Home'>
+                </form>
+            </div>
+        </div>
+        <label class='log-out'>
+            <img src='css/svg/log-out.svg'>
+            <a class='log-out-link' href='com.rev.LogOut'>Log out</a>
+        </label>
+    </nav>
 
-    <p>ID Update : <input type="text" name="updateId" placeholder="Enter ID of Transactions"></p>
-    <input type="radio" id="Approve" name="Verify" value="1">
-    <label for="Approve">Approve</label><br>
-    <input type="radio" id="Deny" name="Verify" value="0">
-    <label for="Deny">Deny</label><br>
-    <input type="text" name="adminNote">
+    <form class='search_contener search_space' action="com.rev.admin.VerifyRequest" method="post">
+        <h2>Approve Or Deny Account</h2>
+            <p>ID Update : <input type="text" class='serch_text' name="updateId" placeholder="Enter ID of Transactions"></p>
+            <input type="radio" id="Approve" name="Verify" value="1">
+            <label for="Approve">Approve</label><br>
+            <input type="radio" id="Deny" name="Verify" value="0">
+            <label for="Deny">Deny</label><br>
+            <textarea type="text" class='serch_text area' name="adminNote"></textarea>
 
-
-
-<input type="submit" value="Verify">
-</form>
+            <input class='verify verify_accaunt' type="submit" value="Verify">
+    </form>
 
 </body>
 </html>

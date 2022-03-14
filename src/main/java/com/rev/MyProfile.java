@@ -47,7 +47,9 @@ public class MyProfile extends HttpServlet {
             out.println("<div class='prof-wrap-main'>");
             out.println("<div class='prof-wrap'>");
             out.println("<div class='prof_left'>");
-            out.println("<div class='prof_back'><form action='"+backBtn+"' method='post'><input type='submit'value=''></form></div>");
+
+            out.println("<form action='"+backBtn+"' method='post' class='prof_back'><input type='submit'value='' class='myprofile_back'></form>");
+
             out.println("<div class='prof_img-wrap'>");
             out.println("<img class='prof-img' src='img/profImg.jfif' alt='Img profile'>");
             out.println("</div>");
@@ -55,16 +57,17 @@ public class MyProfile extends HttpServlet {
             out.println("<h3>"+p.getname()+"</h3>");
             out.println("<h5>Security Lead</h5>");
             out.println("</div>");
-            out.println("<div class='btm-prof-cont'>");
-            out.println("<form action='com.rev.UpdateUserForm' method='post'>" +
+
+            out.println("<form action='com.rev.UpdateUserForm' method='post' class='btm-prof-cont'>" +
                     "<input type='hidden' name='userName' value='"+ userName+"'>" +
                     "<input type='hidden' name='name' value='"+ p.getname()+"'>" +
                     "<input type='hidden' name='address' value='"+ p.getadress()+"'>" +
                     "<input type='hidden' name='email' value='"+ p.getemail()+"'>" +
                     "<input type='hidden' name='phone' value='"+ p.getphone()+"'>" +
-                    "<input type='submit' value='Send'/>" +
+                    "<input type='hidden' name='role' value='"+ p.getrole()+"'>" +
+                    "<input type='submit' value='Send' class='myprofile_submit'/>" +
                     "</form>");
-            out.println("</div>");
+
             out.println("</div>");
             out.println("<div class='prof_right'>");
             out.println("<h3>My profile</h3>");

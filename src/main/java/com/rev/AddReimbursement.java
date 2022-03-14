@@ -48,6 +48,7 @@ public class AddReimbursement extends HttpServlet {
         emp.setisAprove("Pending");
         emp.setAdminNote("");
 
+        req.getRequestDispatcher("com.rev.Profile").include(req, res);
 
         session.save(emp);
         trans.commit();
