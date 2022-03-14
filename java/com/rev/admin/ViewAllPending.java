@@ -38,9 +38,6 @@ public class ViewAllPending extends HttpServlet {
 
             out.println("<div class='prof_right'>");
 
-
-
-
             // out.println("<h3>My profile</h3>");
             out.println("<div class='user-info-contener'>");
             out.println("<div class='user-infoblock green'>");
@@ -91,6 +88,7 @@ public class ViewAllPending extends HttpServlet {
         }
 
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }

@@ -166,6 +166,7 @@ public class ViewAllResolved extends HttpServlet {
             out.println("<br>");*/
         }
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
 
     }

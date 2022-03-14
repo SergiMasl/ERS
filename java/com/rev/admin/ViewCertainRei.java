@@ -116,5 +116,6 @@ public class ViewCertainRei extends HttpServlet {
         out.println("<form action='com.rev.admin.CheckTransIndivid' method='post'> <input type='hidden' name='all' value='all'><input type='hidden' name='uname' value='"+userName+"'> <input type='submit' value='View All of this user'></form>");
 */
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Home'>");
     }
 }

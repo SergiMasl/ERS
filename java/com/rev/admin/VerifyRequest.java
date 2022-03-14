@@ -100,6 +100,7 @@ public class VerifyRequest extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("com.rev.admin.AdminHome");
         requestDispatcher.forward(request, response);
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }

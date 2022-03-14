@@ -101,6 +101,7 @@ public class ViewCertainByName extends HttpServlet {
 
             uname = e.getuserName();
             session.close();
+            out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Home'>");
         }
 
     }

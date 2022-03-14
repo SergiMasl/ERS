@@ -96,6 +96,7 @@ public class ViewApprove extends HttpServlet {
         }
 
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }
