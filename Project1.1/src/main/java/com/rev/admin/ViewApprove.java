@@ -27,24 +27,76 @@ public class ViewApprove extends HttpServlet {
         out.println("<h1> Approved Reimbursement Requests </h1>");
         List<UserTransactionsObj> employeeList = session.createQuery("from UserTransactionsObj u where u.isAprove='Approve'", UserTransactionsObj.class).list();
         for(UserTransactionsObj e : employeeList){
-            /*out.println();
-            out.println( e.getAmount());
-            out.println( e.getDate() );
-            out.println( e.getisAprove() );
-            out.println( e.getNote() );
-            out.println("<br>");*/
             out.println();
-            out.println("Request ID: " + e.getId());
+
+
+            out.println(" <link rel='stylesheet' href='adminHome.css'>");
+            out.println("<div class='prof-contener'>");
+            out.println("<div class='prof-wrap-main'>");
+
+            out.println("<div class='prof-wrap'>");
+
+            out.println("<div class='prof_right'>");
+
+
+
+
+            // out.println("<h3>My profile</h3>");
+            out.println("<div class='user-info-contener'>");
+            out.println("<div class='user-infoblock green'>");
+            //out.println("<div class='prof_svg svg_user'></div>");
+            out.println("<p class='userName'>Request ID: </p>");
+            out.println("   <p class='info'> "+ e.getId()+"</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock blue'>");
+            //out.println("   <div class='prof_svg svg_adress'></div>");
+            out.println("   <p class='userName'>Username: </p>");
+            out.println("   <p class='info'> "+ e.getUserName() + "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            // out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Amount: </p>");
+            out.println("   <p class='info'> $" + e.getAmount() + "</p>");
+            out.println("</div>");
+            //out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Date: </p>");
+            out.println("   <p class='info'> " + e.getDate() + "</p>");
+            out.println("</div>");
+            //out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            // out.println("   <div class='prof_svg svg_mail'></div>");
+            out.println("   <p class='userName'>Status: </p>");
+            out.println("   <p class='info'> " + e.getisAprove() + "</p>");
+            out.println("</div>");
+            // out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Employee Note: </p>");
+            out.println("   <p class='info'> " + e.getNote() + "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock red'>");
+            //out.println("   <div class='prof_svg email'></div>");
+            out.println("   <p class='userName'>Admin Note: </p>");
+            out.println("   <p class='info'> "+  e.getAdminNote() +"</p>");
+            out.println("</div>");
+            out.println("</div></div></div></div></div></div>");
+         //   out.println("<br>");
+
+            /*out.println();
+            out.println("Request ID: " + e.getId() + "<br>");
             out.println("Account Username: " + e.getUserName() + "<br>");
             out.println( "Amount: " + e.getAmount() + "<br>");
             out.println( "Date: " + e.getDate() + "<br>");
             out.println( "Status: " + e.getisAprove() + "<br>");
             out.println( "Employee Note: " + e.getNote() + "<br>");
             out.println( "Admin Note: " + e.getAdminNote() + "<br>");
-            out.println("<br>");
+            out.println("<br>");*/
         }
 
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }

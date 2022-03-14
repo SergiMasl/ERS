@@ -29,16 +29,56 @@ public class printAllEmployees extends HttpServlet {
         List<User> userList = session.createQuery("from User u where u.role='user'", User.class).list();
         out.println("<h1> Employee List</h1>");
         for(User e : userList){
+            out.println(" <link rel='stylesheet' href='adminHome.css'>");
+
+            out.println("<div class='prof-contener'>");
+            out.println("<div class='prof-wrap-main'>");
+            out.println("<div class='prof-wrap'>");
+
+            out.println("<div class='prof_right'>");
+
+            //my profile
+          //  out.println("<h3>My profile</h3>");
+            out.println("<div class='user-info-contener'>");
+            out.println("<div class='user-infoblock green'>");
+         //   out.println("<div class='prof_svg svg_user'></div>");
+            out.println("<p class='userName'>Name: </p>");
+            out.println("   <p class='info'> "+ e.getname()+"</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock blue'>");
+           // out.println("   <div class='prof_svg svg_adress'></div>");
+            out.println("   <p class='userName'>Status: </p>");
+            out.println("   <p class='info'> "+ e.getrole()+ "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock red'>");
+            //out.println("   <div class='prof_svg email'></div>");
+            out.println("   <p class='userName'>Email: </p>");
+            out.println("   <p class='info'> " + e.getemail() + "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Phone Number: </p>");
+            out.println("   <p class='info'>+1-"+e.getphone()+"</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Address: </p>");
+            out.println("   <p class='info'> " + e.getadress() + "</p>");
+            out.println("</div>");
+            out.println("</div></div></div></div></div></div>");
+         //   out.println("<br>");
+/*
             out.println();
             out.println("Employee Name: " + e.getname() + "<br>");
             out.println( "Position: " + e.getrole() + "<br>");
             out.println("Employee email: " + e.getemail() + "<br>");
             out.println( "Phone Number: " + e.getphone() + "<br>");
             out.println( "Address: " + e.getadress() + "<br>");
-            out.println("<br>");
+            out.println("<br>");*/
         }
 
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }

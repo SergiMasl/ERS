@@ -72,6 +72,8 @@ public class VerifyRequest extends HttpServlet {
 
         if(approve){
             out.println("<p>Status set to: " + approve + "</p>");
+            out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Home'>");
+
             Configuration config2 = new Configuration();
             config2.configure("hibernate.cfg.xml");
             SessionFactory factory2 = config2.buildSessionFactory();
@@ -100,6 +102,7 @@ public class VerifyRequest extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("com.rev.admin.AdminHome");
         requestDispatcher.forward(request, response);
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Back'>");
 
     }
 }

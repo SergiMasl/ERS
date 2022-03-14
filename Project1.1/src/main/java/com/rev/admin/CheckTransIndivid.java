@@ -43,17 +43,65 @@ public class CheckTransIndivid extends HttpServlet {
         }
 
 
-
+        out.println("<h1>Checking Certain Employee</h1>");
         for(UserTransactionsObj e : employeeList){
             out.println();
-            out.println( e.getAmount());
-            out.println( e.getDate() );
-            out.println( e.getisAprove() );
-            out.println( e.getNote() );
-            out.println("<br>");
+
+
+            out.println(" <link rel='stylesheet' href='adminHome.css'>");
+            out.println("<div class='prof-contener'>");
+            out.println("<div class='prof-wrap-main'>");
+
+            out.println("<div class='prof-wrap'>");
+
+            out.println("<div class='prof_right'>");
+
+            // out.println("<h3>My profile</h3>");
+            out.println("<div class='user-info-contener'>");
+            out.println("<div class='user-infoblock green'>");
+            //out.println("<div class='prof_svg svg_user'></div>");
+            out.println("<p class='userName'>Request ID: </p>");
+            out.println("   <p class='info'> "+ e.getId()+"</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock blue'>");
+            //out.println("   <div class='prof_svg svg_adress'></div>");
+            out.println("   <p class='userName'>Username: </p>");
+            out.println("   <p class='info'> "+ e.getUserName() + "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            // out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Amount: </p>");
+            out.println("   <p class='info'> $" + e.getAmount() + "</p>");
+            out.println("</div>");
+            //out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Date: </p>");
+            out.println("   <p class='info'> " + e.getDate() + "</p>");
+            out.println("</div>");
+            //out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            // out.println("   <div class='prof_svg svg_mail'></div>");
+            out.println("   <p class='userName'>Status: </p>");
+            out.println("   <p class='info'> " + e.getisAprove() + "</p>");
+            out.println("</div>");
+            // out.println("</div>");
+            out.println("<div class='user-infoblock yellow'>");
+            //out.println("   <div class='prof_svg svg_phone'></div>");
+            out.println("   <p class='userName'>Employee Note: </p>");
+            out.println("   <p class='info'> " + e.getNote() + "</p>");
+            out.println("</div>");
+            out.println("<div class='user-infoblock red'>");
+            //out.println("   <div class='prof_svg email'></div>");
+            out.println("   <p class='userName'>Admin Note: </p>");
+            out.println("   <p class='info'> "+  e.getAdminNote() +"</p>");
+            out.println("</div>");
+            out.println("</div></div></div></div></div></div>");
         }
 
         session.close();
+        out.println("<form action='com.rev.admin.AdminHome' method='post'><input type='submit' value='Home'>");
+
 
     }
 }
