@@ -28,7 +28,7 @@
 
     <form class='search_contener search_space' action="com.rev.admin.VerifyRequest" method="post">
         <h2>Approve Or Deny Account</h2>
-            <p>ID Update : <input type="text" class='serch_text' name="updateId" placeholder="Enter ID of Transactions"></p>
+            <p>ID Update : <input type="text" class='serch_text' id='id' name="updateId" placeholder="Enter ID of Transactions"></p>
             <input type="radio" id="Approve" name="Verify" value="1">
             <label for="Approve">Approve</label><br>
             <input type="radio" id="Deny" name="Verify" value="0">
@@ -37,6 +37,16 @@
 
             <input class='verify verify_accaunt' type="submit" value="Verify">
     </form>
+
+    <script>
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+        let value = params.id;
+        const id = document.querySelector('#id');
+        id.value = value;
+        console.log(id, value);
+    </script>
 
 </body>
 </html>

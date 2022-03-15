@@ -54,7 +54,9 @@ public class CheckTransIndivid extends HttpServlet {
                 "                <div>|</div>" +
                 "                <p class='input-money-text_date'>Date:  </p>" +
                 "                <div>|</div>" +
-                "                <p class='input-money-text_note'>Note: </p>" +
+                "                <p class='input-money-text_note'>Note of empl: </p>" +
+                "<div>|</div>" +
+                "                <p class='input-money-text_note'>Note of admin: </p>" +
                 "                <div>|</div>" +
                 "                <p class='input-money-text_isAprove'>Status: </p>" +
                 "        </div>" +
@@ -62,13 +64,15 @@ public class CheckTransIndivid extends HttpServlet {
         for(UserTransactionsObj u: employeeList){
             uname = u.getUserName();
             out.println("<div class='contener3'><div class='input-wrap-money'>" +
-                    "           <p class='input-money-text_user'>"+u.getId()+"</p>" +
+                    "           <p class='input-money-text_user'><a href='verify.html?id="+u.getId()+"' >"+u.getId()+"</a></p>" +
                     "            <div>|</div>" +
                     "            <p class='input-money-text_amount'>"+u.getAmount()+"</p>" +
                     "            <div>|</div>" +
                     "            <p class='input-money-text_date'>"+u.getDate()+"</p>" +
                     "            <div>|</div>" +
                     "            <p class='input-money-text_note'>"+u.getNote()+"</p>" +
+                    "              <div>|</div>" +
+                    "            <p class='input-money-text_note'>"+u.getAdminNote()+"</p>" +
                     "            <div>|</div>" +
                     "            <p class='input-money-text_isAprove'>"+u.getisAprove()+"</p>" +
                     "        </div></div>");

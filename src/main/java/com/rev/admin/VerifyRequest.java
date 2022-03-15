@@ -30,6 +30,14 @@ public class VerifyRequest extends HttpServlet {
 
         String updateId = request.getParameter("updateId");
         String adminNote = request.getParameter("adminNote");
+        String verify = request.getParameter("Verify");
+
+        switch (verify){
+            case "0": isAprove = "Disapprove";
+            break;
+            case "1": isAprove = "Approve";
+            break;
+        }
 
         Configuration config = new Configuration();
 

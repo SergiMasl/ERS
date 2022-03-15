@@ -65,7 +65,7 @@ public class MyProfile extends HttpServlet {
                     "<input type='hidden' name='email' value='"+ p.getemail()+"'>" +
                     "<input type='hidden' name='phone' value='"+ p.getphone()+"'>" +
                     "<input type='hidden' name='role' value='"+ p.getrole()+"'>" +
-                    "<input type='submit' value='Send' class='myprofile_submit'/>" +
+                    "<input type='submit' value='Change profile' class='myprofile_submit'/>" +
                     "</form>");
 
             out.println("</div>");
